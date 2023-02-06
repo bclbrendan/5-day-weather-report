@@ -19,13 +19,16 @@ method: "GET"
     console.log(response)
     console.log(response.list[0].main.temp)
     var tempK = response.list[0].main.temp
-    KelvintoCelsius(tempK) //converting temp via function
-    console.log(celsius) // converted temp from K to celsius
+    KelvintoCelsiusround(tempK) //converting temp via function
+    console.log(celsius)
+    celsius = celsius.toFixed(2)
+    console.log(celsius)
+    $("#todayLocation").append(" " + today.format("D MMM YYYY"))
+    $("#todayTemp").append(" " + celsius)
+    //$("today's weather" + today.format("D MMM YYYY") + " " + celsius).appendto($('#todayTemp'))
+    //$((`<p>"today's weather" + today.format("D MMM YYYY")`) + " " + celsius</p>').appendTo(`#todaylocation`)
 
-    $("#today").text("today's weather" + today.format("D MMM YYYY") + " " + celsius)
-    
-
-    $("#forecast").text("5 day's weather")
+    //$("#forecast").text("5 day's weather")
 
 
 }
@@ -42,5 +45,8 @@ function todaysDate(){
     return today
 }
 */
-function KelvintoCelsius(temp){
-    return celsius = temp - 273.15 }
+function KelvintoCelsiusround(temp){
+    return celsius = +((temp - 273.15).toFixed(2));
+
+       }
+9
