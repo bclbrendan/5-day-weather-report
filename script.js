@@ -18,13 +18,26 @@ method: "GET"
 .then(function(response) { 
     console.log(response)
     console.log(response.list[0].main.temp)
-    var tempK = response.list[0].main.temp
+    var tempK = response.list[0].main.temp //getting K temp current
     KelvintoCelsiusround(tempK) //converting temp via function
     console.log(celsius)
     celsius = celsius.toFixed(2)
     console.log(celsius)
+
+    //getting wind 
+    console.log(response.list[0].wind.speed)
+    let windSpeed = response.list[0].wind.speed
+
+    //getting humidity 
+    console.log(response.list[0].main.humidity)
+    let humidity = response.list[0].main.humidity
+
+
+
     $("#todayLocation").append(" " + today.format("D MMM YYYY"))
     $("#todayTemp").append(" " + celsius)
+    $("#todayWind").append(" " + windSpeed + " kph")
+    $("#todayHumidity").append(" " + humidity + "%")
     //$("today's weather" + today.format("D MMM YYYY") + " " + celsius).appendto($('#todayTemp'))
     //$((`<p>"today's weather" + today.format("D MMM YYYY")`) + " " + celsius</p>').appendTo(`#todaylocation`)
 
